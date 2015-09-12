@@ -15,10 +15,11 @@ if (count($_REQUEST) && isset ($_REQUEST['fname']) && $_REQUEST['fname'] !== '')
     $zip = $_REQUEST['zip_code'];
     $country = $_REQUEST['country'];
     
-
+//this print statement is running before data is inputted
     print "<p>Welcome aboard, $fname $lname</p>";
 
 } else {
+//what code are we adding here?
 ?>
 <html>
  <head><title>User Registration Form</title></head>
