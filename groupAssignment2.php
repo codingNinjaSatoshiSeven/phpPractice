@@ -7,6 +7,13 @@
 if (count($_REQUEST) && isset ($_REQUEST['fname']) && $_REQUEST['fname'] !== '') {
     $fname = $_REQUEST['fname'];
     $lname = $_REQUEST['lname'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $email = $_POST['email'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $zip = $_POST['zip_code'];
+    $country = $_POST['country'];
     
 
     print "<p>Welcome aboard, $fname $lname</p>";
