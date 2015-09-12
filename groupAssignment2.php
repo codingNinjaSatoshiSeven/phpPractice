@@ -6,18 +6,18 @@
 <?php
 if (count($_REQUEST) && isset ($_REQUEST['fname']) && $_REQUEST['fname'] !== '') {
     $fname = $_REQUEST['fname'];
-    $state = $_REQUEST['state'];
+    $lname = $_REQUEST['lname'];
     
 
-    print "<p>First Name: $fname</p>";
-    print "<p>State: $state</p>";
+    print "<p>Welcome aboard, $fname $lname</p>";
 
 } else {
 ?>
 <html>
  <head><title>User Registration Form</title></head>
  <body>
- <form method="GET" action="groupAssginment2.php">
+ <p style='color:red'>Please enter all the required field</p>
+ <form method="GET" action="groupAssignment2.php">
  <div>
    <p>First Name <input type="text" name="fname"></p>
    <p>Last Name <input type="text" name="lname"></p>
