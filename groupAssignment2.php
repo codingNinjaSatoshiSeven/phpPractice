@@ -11,7 +11,7 @@
     $error = "Please enter all the required field";
   }
 
-  if(count($_REQUEST) && !isset($error)){
+  if (count($_REQUEST)) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $dob = $_POST['dob'];
@@ -22,12 +22,34 @@
     $state = $_POST['state'];
     $zip = $_POST['zip_code'];
     $country = $_POST['country'];
+    if(isset($_POST['gender'])) {
+      $gender = $_POST['gender'];
+    } else {
+      $gender = 'Female';
+    }
+  } else {
+    $fname = '';
+    $lname = '';
+    $dob = '';
+    $email = '';
+    $username = '';
+    $password = '';
+    $city = '';
+    $state = '';
+    $zip = '';
+    $country = '';
+    $gender = 'Female';
+  }
+
+
+  
+  if(count($_REQUEST) && !isset($error)){
+    
 
     print "<p>First Name: $fname</p>";
     print "<p>Last Name: $lname</p>";
     if(isset($_POST['gender']))
     {
-      $gender = $_POST['gender'];
       print "<p>Gender: $gender</p>";
     }
     else
@@ -43,45 +65,47 @@
     print "<p>ZIP: $zip</p>";
     print "<p>Country: $country</p>";
   } else {
-?>
-<html>
+print <<<FORM_TITLE
+  <html>
   <head><title>User Registration Form</title></head>
   <body>
   <h3>User Registration Form</h3>
-<?php
+FORM_TITLE;
+
   if(isset($error))
   {
     print "<p style='color:red'>$error</p>";
   }
-?>
+print <<<FORM_CONTENT
   <form method="POST" action="groupAssignment2.php">
     <table width="100%">
       <tr>
         <td valign="top" width="20%">First Name*</td>
-        <td><input type="text" name="fname"></td>
+        <td><input type="text" name="fname" value="$fname"></td>
       </tr>
       <tr>
         <td valign="top" width="20%">Last Name*</td>
-        <td><input type="text" name="lname"></td>
+        <td><input type="text" name="lname" value="$lname"></td>
       </tr>
       <tr>
-        <td valign="top" width="20%">Gender</td>
-        <td><input type="radio" name="gender" value="Male"> Male<br>
+        <td valign="top" width="20%" value="$gender">Gender</td>
+        <td>
           <input type="radio" name="gender" value="Female"> Female<br>
+          <input type="radio" name="gender" value="Male"> Male<br>
           <input type="radio" name="gender" value="Other"> Other<br>
         </td>
       </tr>
       <tr>
         <td valign="top" width="20%">DOB*</td>
-        <td><input type="datetime" name="dob"></td>
+        <td><input type="datetime" name="dob" value="$dob"></td>
       </tr>
       <tr>
         <td valign="top" width="20%">Email*</td>
-        <td><input type="email" name="email"></td>
+        <td><input type="email" name="email" value="$email"></td>
       </tr>
       <tr>
         <td valign="top" width="20%">Username*</td>
-        <td><input type="text" name="username"></td>
+        <td><input type="text" name="username" value="$username"></td>
       </tr>
       <tr>
         <td valign="top" width="20%">Password*</td>
@@ -89,12 +113,12 @@
       </tr>
       <tr>
         <td valign="top" width="20%">City</td>
-        <td><input type="text" name="city"></td>
+        <td><input type="text" name="city" value="$city"></td>
       </tr>
       <tr>
         <td valign="top" width="20%">State</td>
         <td>
-          <select name="state">
+          <select name="state" value="$state">
             <option value="AL">ALABAMA</option>
             <option value="AK">ALASKA</option>
             <option value="AZ">ARIZONA</option>
@@ -150,18 +174,19 @@
       </tr>
       <tr>
         <td valign="top" width="20%">Zip Code</td>
-        <td><input type="text" name="zip_code"></td>
+        <td><input type="number" name="zip_code" value="$zip"></td>
       </tr>
       <tr>
         <td valign="top" width="20%">Country</td>
-        <td><input type="text" name="country"></td>
+        <td><input type="text" name="country" value="$country"></td>
       </tr>
     </table>
     <p><input type="submit" value="Submit Form" name="submitform"></p>
   </form>
   </body>
 </html>
-<?php
+FORM_CONTENT;
+
 }
 ?>
 </body>
