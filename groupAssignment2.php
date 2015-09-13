@@ -17,6 +17,13 @@ if (count($_REQUEST) && isset ($_REQUEST['fname']) && $_REQUEST['fname'] !== '')
     
 //this print statement is running before data is inputted
     print "<p>Welcome aboard, $fname $lname</p>";
+    print "<p>Gender: $gender</p>";
+    print "<p>Date of Birth: $dob</p>";
+    print "<p>Email: $email</p>";
+    print "<p>City: $city</p>";
+    print "<p>State: $state</p>";
+    print "<p>Zip: $zip</p>";
+    print "<p>Country: $country</p>";
 
 } else {
 //what code are we adding here?
