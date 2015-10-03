@@ -62,11 +62,13 @@
 
 
 
-if(isset($_POST['submit']) && isset($_POST['radio1'])) {
+if(isset($_POST['submit']) && isset($_POST['radio1']) && isset($_POST['radio2'])) {
 
 
   $radio1= $_POST['radio1'];
-  echo('<p>$radio1</p>');
+  echo('<p>'.$radio1.'</p>');
+  $radio2= $_POST['radio2'];
+  echo('<p>'.$radio2.'</p>');
 
 
   // Enter the Code you want to execute after the form has been submitted
@@ -103,7 +105,7 @@ else
 
       foreach($radioArray as $v) {
 
-        echo('<input type="radio" name="radio1" value="'. $v . '">' . $v . '</input>');
+        echo('<input type="radio" name="radio2" value="'. $v . '">' . $v . '</input>');
 
       }
 
